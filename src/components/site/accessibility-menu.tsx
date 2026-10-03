@@ -13,7 +13,17 @@ export function AccessibilityMenu() {
     if (!open) return;
     const previous = document.activeElement as HTMLElement | null;
     panelRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); triggerRef.current?.focus(); } };
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); triggerRef.current?.focus(); return; }
+      if (event.key === "Tab" && panelRef.current) {
+        const focusable = Array.from(panelRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+        const first = focusable[0];
+        const last = focusable.at(-1);
+        if (!first || !last) return;
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
     document.addEventListener("keydown", close);
     return () => { document.removeEventListener("keydown", close); if (previous && previous !== triggerRef.current) previous.focus(); };
   }, [open]);

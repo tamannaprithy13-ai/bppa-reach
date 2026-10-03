@@ -1,8 +1,8 @@
 # BPPA Website Roadmap
 
-- [ ] Build bilingual content architecture and shared shell
-- [ ] Implement accessibility settings and keyboard-safe overlays
-- [ ] Create all nine public page experiences
-- [ ] Add brand assets and visual system
-- [ ] Add route and interaction coverage
+- [x] Build bilingual content architecture and shared shell
+- [x] Implement accessibility settings and keyboard-safe overlays
+- [x] Create all nine public page experiences
+- [x] Add brand assets and visual system
+- [x] Add route and interaction coverage
 - [ ] Complete responsive, accessibility, and runtime QA

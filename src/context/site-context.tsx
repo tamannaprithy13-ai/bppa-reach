@@ -20,7 +20,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement;
     root.lang = language === "bn" ? "bn" : "en";
     root.style.fontSize = `${settings.textScale}%`;
-    root.dataset.visualMode = settings.visualMode;
+    root.dataset["visualMode"] = settings.visualMode;
     root.classList.toggle("big-cursor", settings.bigCursor);
     root.classList.toggle("highlight-links", settings.highlightLinks);
     root.classList.toggle("highlight-headings", settings.highlightHeadings);

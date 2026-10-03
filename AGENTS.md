@@ -1,10 +1,8 @@
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
+> This project is connected to Lovable. Avoid rewriting published git history.
 <!-- LOVABLE:END -->
+
+- Keep bilingual copy and entity content in typed local content modules, because a future API should replace data without changing presentation components.
+- Keep site-wide language and accessibility preferences in shared React context, because every route and global control must stay synchronized.
+- Use TanStack file routes for every public content section, because each page requires independent navigation and metadata.
